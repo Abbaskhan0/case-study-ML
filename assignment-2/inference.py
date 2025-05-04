@@ -7,15 +7,6 @@ from PIL import Image, ImageOps
 import os
 
 def preprocess_image(image_path):
-    """
-    Loads and preprocesses an image file for MNIST model inference.
-
-    Args:
-        image_path (str): Path to the image file.
-
-    Returns:
-        tuple: (processed_image_batch, display_image) or (None, None) if error.
-    """
     try:
         # Load the image using Pillow
         img = Image.open(image_path)
@@ -36,10 +27,7 @@ def preprocess_image(image_path):
         upper_left_y = (28 - img.height) // 2
         new_img.paste(img, (upper_left_x, upper_left_y))
 
-        # Normalize to [0, 1]
         img_array = np.array(new_img).astype("float32") / 255.0
-
-        # Reshape for model input: (1, 28, 28, 1)
         img_array = np.expand_dims(img_array, axis=-1)  # Add channel dim
         img_array = np.expand_dims(img_array, axis=0)   # Add batch dim
 
@@ -54,19 +42,10 @@ def preprocess_image(image_path):
         return None, None
 
 def predict_digit(image_path, model):
-    """
-    Loads the model, preprocesses the image, predicts the digit, and displays results.
-
-    Args:
-        image_path (str): Path to the input image file.
-        model_path (str): Path to the saved Keras model file.
-    """
-
+  
     processed_image, display_image = preprocess_image(image_path)
     if processed_image is None:
         return # Error occurred during preprocessing
-
-    # --- Perform Inference ---
     try:
         print("Performing prediction...")
         predictions = model.predict(processed_image, verbose=0)
@@ -77,13 +56,17 @@ def predict_digit(image_path, model):
         print(f"\nPrediction complete:")
         print(f"  Predicted Digit: {predicted_digit}")
         print(f"  Confidence: {confidence:.2f}%")
-
-        # --- Display Image and Prediction ---
         plt.figure(figsize=(6, 6))
         plt.imshow(display_image, cmap=plt.cm.gray) # Display original image
         plt.title(f"Input Image\nPredicted Digit: {predicted_digit} ({confidence:.1f}%)")
-        plt.axis('off') # Hide axes
+        plt.axis('off') 
         plt.show()
+     
+        # plt.figure(figsize=(6, 6))
+        # plt.imshow(display_image, cmap=plt.cm.gray) # Display original image
+        # plt.title(f"Input Image\nPredicted Digit: {predicted_digit} ({confidence:.1f}%)")
+        # plt.axis('off') 
+        # plt.show()
 
     except Exception as e:
         print(f"Error during prediction or display: {e}")
