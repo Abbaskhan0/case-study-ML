@@ -10,21 +10,11 @@ This Repo contains end-to-end solutions for three mini projects ,These projects 
 - All the code is orchestrated & build by myself without using of AI tools or any external help , However in some cases of code debugging , errors handling , utils functions development **AI tools** (google gemini flash 2.0) and refrence from external source like Stack overflow ,Google is being used to met the sucess criteria in tight deadline of 48 hours.
 
 ---
-## Assignment 1 : Sentiment Analysis Using LSTM & Transformers
-**Objective**:  
-Build a DL training pipeline for sentiment analysis using:
-- One LSTM model
-- One Transformer-based model
-
-**Dataset**:  
-IMDB dataset is used from keras
-- 50000 Samples with two classes
-
-**Model Achitecture**
-
-**Evaluation Report**
-
-**Inferencing**
-
-
+## Assignment 1 : [Sentiment Analysis Using LSTM & Transformers](https://github.com/Abbaskhan0/case-study-ML/tree/main/assignment-1)
+---
+## Assignment 2 : [Image Recognition Using CNN](https://github.com/Abbaskhan0/case-study-ML/tree/main/assignment-2)
+---
+## Assignment 1 : (DL for Speech-to-text model](https://github.com/Abbaskhan0/case-study-ML/tree/main/assignment-3)
+---
+**Please find the`training.ipynb` file in the assignment folder for main code** 
 
