@@ -1,4 +1,4 @@
-# Cae Study -Machine learning Assignments
+# Case Study -Machine learning Assignments
 This Repo contains end-to-end solutions for three mini projects ,These projects covers core domains in deep learning NLP , Vision , Speech 
 
 ---
